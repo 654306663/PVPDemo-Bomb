@@ -1,0 +1,21 @@
+message SyncTransformC2S{
+	required float x = 1;
+	required float y = 2;
+	required float z = 3;
+	required float angleY = 4;
+	
+}
+
+message SyncTransformEvtS2C{
+
+	repeated TransformData dataList = 1;
+
+	message TransformData
+	{
+		required string username = 2;  
+		required float x = 3;
+		required float y = 4;
+		required float z = 5;
+		required float angleY = 6;
+	}
+}

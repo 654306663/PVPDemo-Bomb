@@ -1,0 +1,8 @@
+message SyncTransitionC2S{
+	required int32 targetTransition = 1;
+}
+
+message SyncTransitionS2C{
+	required string username = 1;
+	required int32 targetTransition = 2;
+}

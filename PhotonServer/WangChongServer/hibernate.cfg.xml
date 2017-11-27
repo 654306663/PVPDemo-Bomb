@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <property name="connection.provider">NHibernate.Connection.DriverConnectionProvider</property>
+    <property name="dialect">NHibernate.Dialect.MySQL5Dialect</property>
+    <!--用来配置使用什么版本的数据库-->
+    <property name="connection.driver_class">NHibernate.Driver.MySqlDataDriver</property>
+    <!--用来配置使用什么数据库-->
+    <property name="connection.connection_string">Server=localhost;PORT=20994;Database=test001;User ID=root;Password=123123</property>
+    <!--配置MySQL的IP地址数据库名用户名和密码-->
+
+    <property name="show_sql">true</property>
+  </session-factory>
+</hibernate-configuration>

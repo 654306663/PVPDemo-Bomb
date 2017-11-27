@@ -1,0 +1,710 @@
+fileFormatVersion: 2
+guid: c72c97e952bf7834b85e6164373d310d
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Body
+    100002: Body_jnt
+    100004: Foot_Left
+    100006: Foot_Left_jnt
+    100008: Foot_Left_jnt1
+    100010: Foot_Right
+    100012: Foot_Right_jnt
+    100014: Foot_Right_jnt1
+    100016: GasMask
+    100018: Hair_Bobs
+    100020: Hair_Ponytail
+    100022: Hair_Punk
+    100024: Hair_Top
+    100026: Hand_Left
+    100028: Hand_Left_jnt
+    100030: Hand_Right
+    100032: Hand_Right_jnt
+    100034: Hat_Cap
+    100036: Hat_Cap_Backwards
+    100038: Hat_FireFighter
+    100040: Hat_Helmet
+    100042: Hat_Hobo
+    100044: Hat_jnt
+    100046: Hat_Pimp
+    100048: Hat_Police
+    100050: Hat_Sheriff
+    100052: Head
+    100054: Head_jnt
+    100056: Hips_jnt
+    100058: LowerArm_Left
+    100060: LowerArm_Left_jnt
+    100062: LowerArm_Right
+    100064: LowerArm_Right_jnt
+    100066: LowerBody
+    100068: LowerLeg_Left
+    100070: LowerLeg_Left_jnt
+    100072: LowerLeg_Right
+    100074: LowerLeg_Right_jnt
+    100076: Prop_Backpack
+    100078: Prop_FireFighterPack
+    100080: RiotHelmet
+    100082: Root_jnt
+    100084: //RootNode
+    100086: Spine_jnt
+    100088: UpperArm_Left
+    100090: UpperArm_Left_jnt
+    100092: UpperArm_Right
+    100094: UpperArm_Right_jnt
+    100096: UpperLeg_Left
+    100098: UpperLeg_Left_jnt
+    100100: UpperLeg_Right
+    100102: UpperLeg_Right_jnt
+    100104: WarHelmet
+    100106: Base_mesh
+    100108: BusinessMan
+    100110: FireFighter
+    100112: Hobo
+    100114: Pimp
+    100116: Policeman
+    100118: Prostitute
+    100120: Punk
+    100122: RiotCop
+    100124: Roadworker
+    100126: Robber
+    100128: Sheriff
+    100130: StreetMan
+    100132: Trucker
+    100134: Woman
+    100136: mesh_Base
+    100138: mesh_BusinessMan
+    100140: mesh_FireFighter
+    100142: mesh_Hobo
+    100144: mesh_Pimp
+    100146: mesh_Policeman
+    100148: mesh_Prostitute
+    100150: mesh_Punk
+    100152: mesh_RiotCop
+    100154: mesh_Roadworker
+    100156: mesh_Robber
+    100158: mesh_Sheriff
+    100160: mesh_StreetMan
+    100162: mesh_Trucker
+    100164: mesh_Woman
+    400000: Body
+    400002: Body_jnt
+    400004: Foot_Left
+    400006: Foot_Left_jnt
+    400008: Foot_Left_jnt1
+    400010: Foot_Right
+    400012: Foot_Right_jnt
+    400014: Foot_Right_jnt1
+    400016: GasMask
+    400018: Hair_Bobs
+    400020: Hair_Ponytail
+    400022: Hair_Punk
+    400024: Hair_Top
+    400026: Hand_Left
+    400028: Hand_Left_jnt
+    400030: Hand_Right
+    400032: Hand_Right_jnt
+    400034: Hat_Cap
+    400036: Hat_Cap_Backwards
+    400038: Hat_FireFighter
+    400040: Hat_Helmet
+    400042: Hat_Hobo
+    400044: Hat_jnt
+    400046: Hat_Pimp
+    400048: Hat_Police
+    400050: Hat_Sheriff
+    400052: Head
+    400054: Head_jnt
+    400056: Hips_jnt
+    400058: LowerArm_Left
+    400060: LowerArm_Left_jnt
+    400062: LowerArm_Right
+    400064: LowerArm_Right_jnt
+    400066: LowerBody
+    400068: LowerLeg_Left
+    400070: LowerLeg_Left_jnt
+    400072: LowerLeg_Right
+    400074: LowerLeg_Right_jnt
+    400076: Prop_Backpack
+    400078: Prop_FireFighterPack
+    400080: RiotHelmet
+    400082: Root_jnt
+    400084: //RootNode
+    400086: Spine_jnt
+    400088: UpperArm_Left
+    400090: UpperArm_Left_jnt
+    400092: UpperArm_Right
+    400094: UpperArm_Right_jnt
+    400096: UpperLeg_Left
+    400098: UpperLeg_Left_jnt
+    400100: UpperLeg_Right
+    400102: UpperLeg_Right_jnt
+    400104: WarHelmet
+    400106: Base_mesh
+    400108: BusinessMan
+    400110: FireFighter
+    400112: Hobo
+    400114: Pimp
+    400116: Policeman
+    400118: Prostitute
+    400120: Punk
+    400122: RiotCop
+    400124: Roadworker
+    400126: Robber
+    400128: Sheriff
+    400130: StreetMan
+    400132: Trucker
+    400134: Woman
+    400136: mesh_Base
+    400138: mesh_BusinessMan
+    400140: mesh_FireFighter
+    400142: mesh_Hobo
+    400144: mesh_Pimp
+    400146: mesh_Policeman
+    400148: mesh_Prostitute
+    400150: mesh_Punk
+    400152: mesh_RiotCop
+    400154: mesh_Roadworker
+    400156: mesh_Robber
+    400158: mesh_Sheriff
+    400160: mesh_StreetMan
+    400162: mesh_Trucker
+    400164: mesh_Woman
+    2300000: Body
+    2300002: Foot_Left
+    2300004: Foot_Right
+    2300006: GasMask
+    2300008: Hair_Bobs
+    2300010: Hair_Ponytail
+    2300012: Hair_Punk
+    2300014: Hair_Top
+    2300016: Hand_Left
+    2300018: Hand_Right
+    2300020: Hat_Cap
+    2300022: Hat_Cap_Backwards
+    2300024: Hat_FireFighter
+    2300026: Hat_Helmet
+    2300028: Hat_Hobo
+    2300030: Hat_Pimp
+    2300032: Hat_Police
+    2300034: Hat_Sheriff
+    2300036: Head
+    2300038: LowerArm_Left
+    2300040: LowerArm_Right
+    2300042: LowerBody
+    2300044: LowerLeg_Left
+    2300046: LowerLeg_Right
+    2300048: Prop_Backpack
+    2300050: Prop_FireFighterPack
+    2300052: RiotHelmet
+    2300054: UpperArm_Left
+    2300056: UpperArm_Right
+    2300058: UpperLeg_Left
+    2300060: UpperLeg_Right
+    2300062: WarHelmet
+    3300000: Body
+    3300002: Foot_Left
+    3300004: Foot_Right
+    3300006: GasMask
+    3300008: Hair_Bobs
+    3300010: Hair_Ponytail
+    3300012: Hair_Punk
+    3300014: Hair_Top
+    3300016: Hand_Left
+    3300018: Hand_Right
+    3300020: Hat_Cap
+    3300022: Hat_Cap_Backwards
+    3300024: Hat_FireFighter
+    3300026: Hat_Helmet
+    3300028: Hat_Hobo
+    3300030: Hat_Pimp
+    3300032: Hat_Police
+    3300034: Hat_Sheriff
+    3300036: Head
+    3300038: LowerArm_Left
+    3300040: LowerArm_Right
+    3300042: LowerBody
+    3300044: LowerLeg_Left
+    3300046: LowerLeg_Right
+    3300048: Prop_Backpack
+    3300050: Prop_FireFighterPack
+    3300052: RiotHelmet
+    3300054: UpperArm_Left
+    3300056: UpperArm_Right
+    3300058: UpperLeg_Left
+    3300060: UpperLeg_Right
+    3300062: WarHelmet
+    4300000: Foot_Left
+    4300002: LowerLeg_Left
+    4300004: UpperLeg_Left
+    4300006: Foot_Right
+    4300008: LowerLeg_Right
+    4300010: UpperLeg_Right
+    4300012: Hat_Police
+    4300014: Hat_FireFighter
+    4300016: Hat_Cap_Backwards
+    4300018: Hat_Helmet
+    4300020: Hair_Bobs
+    4300022: Hair_Ponytail
+    4300024: Hair_Top
+    4300026: Hat_Pimp
+    4300028: Hair_Punk
+    4300030: Hat_Sheriff
+    4300032: Hat_Cap
+    4300034: GasMask
+    4300036: Hat_Hobo
+    4300038: RiotHelmet
+    4300040: WarHelmet
+    4300042: Head
+    4300044: Hand_Right
+    4300046: LowerArm_Right
+    4300048: UpperArm_Right
+    4300050: Hand_Left
+    4300052: LowerArm_Left
+    4300054: UpperArm_Left
+    4300056: Body
+    4300058: Prop_Backpack
+    4300060: Prop_FireFighterPack
+    4300062: LowerBody
+    4300064: Base_mesh
+    4300066: Roadworker
+    4300068: Prostitute
+    4300070: BusinessMan
+    4300072: Hobo
+    4300074: Robber
+    4300076: Woman
+    4300078: Pimp
+    4300080: Punk
+    4300082: Sheriff
+    4300084: FireFighter
+    4300086: Trucker
+    4300088: StreetMan
+    4300090: Policeman
+    4300092: RiotCop
+    4300094: mesh_Base
+    4300096: mesh_Roadworker
+    4300098: mesh_Prostitute
+    4300100: mesh_BusinessMan
+    4300102: mesh_Hobo
+    4300104: mesh_Robber
+    4300106: mesh_Woman
+    4300108: mesh_Pimp
+    4300110: mesh_Punk
+    4300112: mesh_Sheriff
+    4300114: mesh_FireFighter
+    4300116: mesh_Trucker
+    4300118: mesh_StreetMan
+    4300120: mesh_Policeman
+    4300122: mesh_RiotCop
+    7400000: Idle
+    7400002: Walk
+    7400004: Run
+    9500000: //RootNode
+    13700000: Base_mesh
+    13700002: BusinessMan
+    13700004: FireFighter
+    13700006: Hobo
+    13700008: Pimp
+    13700010: Policeman
+    13700012: Prostitute
+    13700014: Punk
+    13700016: RiotCop
+    13700018: Roadworker
+    13700020: Robber
+    13700022: Sheriff
+    13700024: StreetMan
+    13700026: Trucker
+    13700028: Woman
+    13700030: mesh_Base
+    13700032: mesh_BusinessMan
+    13700034: mesh_FireFighter
+    13700036: mesh_Hobo
+    13700038: mesh_Pimp
+    13700040: mesh_Policeman
+    13700042: mesh_Prostitute
+    13700044: mesh_Punk
+    13700046: mesh_RiotCop
+    13700048: mesh_Roadworker
+    13700050: mesh_Robber
+    13700052: mesh_Sheriff
+    13700054: mesh_StreetMan
+    13700056: mesh_Trucker
+    13700058: mesh_Woman
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 2
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 2
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 1
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 52
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 82
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Hips_jnt
+      humanName: Hips
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: 0.015238949, y: 0, z: 0.0076194745}
+        length: 0.01904869
+        modified: 1
+    - boneName: UpperLeg_Left_jnt
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: -60.000004, y: -60.000004, z: -90}
+        max: {x: 60.000004, y: 60.000004, z: 50}
+        value: {x: 0.29961723, y: 0, z: 0.14980862}
+        length: 0.37452167
+        modified: 1
+    - boneName: UpperLeg_Right_jnt
+      humanName: RightUpperLeg
+      limit:
+        min: {x: -60.000004, y: -60.000004, z: -90}
+        max: {x: 60.000004, y: 60.000004, z: 50}
+        value: {x: 0.29961747, y: 0, z: 0.14980873}
+        length: 0.37452197
+        modified: 1
+    - boneName: LowerLeg_Left_jnt
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: 0.3109949, y: 0, z: 0.15549745}
+        length: 0.38874376
+        modified: 1
+    - boneName: LowerLeg_Right_jnt
+      humanName: RightLowerLeg
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: 0.31099507, y: 0, z: 0.15549754}
+        length: 0.38874397
+        modified: 1
+    - boneName: Foot_Left_jnt
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: -30.000002, z: -50}
+        max: {x: 0, y: 30.000002, z: 50}
+        value: {x: 0.122244045, y: 0, z: 0.061122023}
+        length: 0.15280509
+        modified: 1
+    - boneName: Foot_Right_jnt
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: -30.000002, z: -50}
+        max: {x: 0, y: 30.000002, z: 50}
+        value: {x: 0.12224402, y: 0, z: 0.06112201}
+        length: 0.15280506
+        modified: 1
+    - boneName: Body_jnt
+      humanName: Spine
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: 0.5362599, y: 0, z: 0.26812994}
+        length: 0.67032516
+        modified: 1
+    - boneName: Spine_jnt
+      humanName: Chest
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: 0.24850076, y: 0, z: 0.12425038}
+        length: 0.31062603
+        modified: 1
+    - boneName: Head_jnt
+      humanName: Head
+      limit:
+        min: {x: -40, y: -40, z: -40}
+        max: {x: 40, y: 40, z: 40}
+        value: {x: 0.12425038, y: 0, z: 0.06212519}
+        length: 0.15531301
+        modified: 1
+    - boneName: UpperArm_Left_jnt
+      humanName: LeftUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.000004}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: 0.3769503, y: 0, z: 0.18847515}
+        length: 0.471188
+        modified: 1
+    - boneName: UpperArm_Right_jnt
+      humanName: RightUpperArm
+      limit:
+        min: {x: -90, y: -100, z: -60.000004}
+        max: {x: 90, y: 100, z: 100}
+        value: {x: 0.3769518, y: 0, z: 0.1884759}
+        length: 0.47118992
+        modified: 1
+    - boneName: LowerArm_Left_jnt
+      humanName: LeftLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: 0.35223988, y: 0, z: 0.17611994}
+        length: 0.4403
+        modified: 1
+    - boneName: LowerArm_Right_jnt
+      humanName: RightLowerArm
+      limit:
+        min: {x: -90, y: 0, z: -80}
+        max: {x: 90, y: 0, z: 80}
+        value: {x: 0.35223988, y: 0, z: 0.17611994}
+        length: 0.4403
+        modified: 1
+    - boneName: Hand_Left_jnt
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: 0.17611994, y: 0, z: 0.08805997}
+        length: 0.22015
+        modified: 1
+    - boneName: Hand_Right_jnt
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: -40, z: -80}
+        max: {x: 0, y: 40, z: 80}
+        value: {x: 0.17611994, y: 0, z: 0.08805997}
+        length: 0.22015
+        modified: 1
+    - boneName: Hat_jnt
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: -20, z: -10}
+        max: {x: 0, y: 20, z: 15.000001}
+        value: {x: 0.079999976, y: 0, z: 0.039999988}
+        length: 0.1
+        modified: 1
+    skeleton:
+    - name: SimplePeople
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Root_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hips_jnt
+      position: {x: -0, y: 1.0449876, z: 0}
+      rotation: {x: 0, y: 0, z: 0.25974357, w: 0.96567756}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Body_jnt
+      position: {x: 0.009555898, y: 0.016478358, z: 0}
+      rotation: {x: -0, y: 0, z: 0.8665036, w: -0.4991707}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Spine_jnt
+      position: {x: -0.6703252, y: 1.488421e-16, z: 0}
+      rotation: {x: 0, y: 0, z: -1.6657681e-15, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Head_jnt
+      position: {x: -0.3106261, y: 6.897285e-17, z: 0}
+      rotation: {x: 0, y: 0, z: -1.5543121e-15, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hat_jnt
+      position: {x: -0.54227096, y: 1.2040834e-16, z: 0}
+      rotation: {x: 3.710636e-16, y: -1.514828e-16, z: 0.70710677, w: 0.70710677}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UpperArm_Left_jnt
+      position: {x: -0.21910845, y: -0.565232, z: 0}
+      rotation: {x: 0, y: 0, z: -0.70710677, w: 0.70710677}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LowerArm_Left_jnt
+      position: {x: 0.471188, y: -2.842171e-16, z: 5.77041e-17}
+      rotation: {x: 0, y: 0, z: -3.3306689e-15, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hand_Left_jnt
+      position: {x: 0.4403, y: 0, z: 5.39209e-17}
+      rotation: {x: -1.7592054e-13, y: 0.99999994, z: -5.053215e-16, w: -2.283808e-15}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UpperArm_Right_jnt
+      position: {x: -0.21910845, y: 0.565232, z: 0}
+      rotation: {x: -0.70710677, y: 0.70710677, z: 3.4273996e-23, w: -8.659558e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LowerArm_Right_jnt
+      position: {x: -0.47118998, y: 5.684342e-16, z: -5.770413e-17}
+      rotation: {x: -6.6276564e-19, y: -3.5869213e-21, z: 6.132247e-16, w: 0.99999994}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Hand_Right_jnt
+      position: {x: -0.4403, y: -8.5265126e-16, z: -5.3921198e-17}
+      rotation: {x: 1.4172567e-13, y: 0.99999994, z: -9.494106e-16, w: 1.7323381e-15}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UpperLeg_Left_jnt
+      position: {x: -0.25698245, y: -1.4210854e-16, z: 0}
+      rotation: {x: -0.00013711101, y: -0.000084247156, z: 0.49917462, w: 0.86650133}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LowerLeg_Left_jnt
+      position: {x: -0.37452164, y: -3.5527136e-17, z: -2.7105054e-22}
+      rotation: {x: -0.70759016, y: 0.0000064468913, z: -0.0000061459114, w: 0.70662296}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Foot_Left_jnt
+      position: {x: -0.38874373, y: 1.2252568e-17, z: 7.3426066e-12}
+      rotation: {x: 0.5004222, y: 0.5004221, z: -0.49957308, w: 0.49958178}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: UpperLeg_Right_jnt
+      position: {x: 0.12763838, y: -0.22304337, z: 0}
+      rotation: {x: -0.49918565, y: 0.86646986, z: 0.005724977, w: -0.0032841237}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: LowerLeg_Right_jnt
+      position: {x: 0.374522, y: 2.4868996e-16, z: -1.0987412e-12}
+      rotation: {x: -0.7041099, y: -0.000030960502, z: 0.000051819687, w: 0.7100909}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Foot_Right_jnt
+      position: {x: 0.388744, y: 8.197135e-12, z: -3.6907224e-11}
+      rotation: {x: 0.5011712, y: 0.50119686, z: -0.49882898, w: 0.49879733}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="MyGameServer"
+                   namespace="MyGameServer.Model">
+  <!--assembly:模型所在的程序集-->
+  <!--namespace:表示User这个类在那个命名空间下的那个文件内-->
+  <class name="User" table="user">
+    <!--表示User这个类跟数据库里面的user表对应-->
+    <id name="Id" column="id" type="Int32">
+      <!--id name配置User类里面主键的映射,column表示跟数据库中哪个主键对应,type类型-->
+      <generator class="native"> </generator>
+      <!--generator表示一个生成器，class指定generator的类型，native表示使用数据库自带的生成器-->
+    </id>
+    <property name="Username" column="username" type="String"> </property>
+    <property name="Password" column="password" type="String"> </property>
+  </class>
+</hibernate-mapping>

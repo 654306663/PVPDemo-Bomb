@@ -1,0 +1,23 @@
+message AddBombC2S{	
+	required int32 bombType = 1;
+	required float durationTime = 2;
+	required float damageRange = 3;
+	required float startX = 4;
+	required float startY = 5;
+	required float startZ = 6;
+	required float endX = 7;
+	required float endY = 8;
+	required float endZ = 9;
+}
+
+message AddBombS2CEvt{
+	required string username = 1;	
+	required int32 bombType = 2;
+	required int32 bombId = 3;
+	required float startX = 4;
+	required float startY = 5;
+	required float startZ = 6;
+	required float endX = 7;
+	required float endY = 8;
+	required float endZ = 9;
+}

@@ -1,0 +1,8 @@
+message LoginC2S{
+	required string username = 1;
+	required string password = 2;
+}
+
+message LoginS2C{
+	required string username = 1;
+}

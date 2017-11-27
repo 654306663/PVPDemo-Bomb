@@ -1,0 +1,15 @@
+message OpemBombS2CEvt{
+	required int32 bombId = 1;
+	required OpenBombType openType = 2 [default = Normal];
+	repeated BeHitData beHitData = 3;
+	
+	enum OpenBombType{
+		Normal = 0;
+		Break = 1;
+	}
+	
+	message BeHitData{
+		required string username = 4;
+		required int32 lossHp = 5;
+	}
+}

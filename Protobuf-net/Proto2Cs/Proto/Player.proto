@@ -1,0 +1,17 @@
+message PlayerC2S{
+	required string modelName = 1;	
+}
+
+message PlayerS2C{
+	repeated PlayerData dataList = 1;
+	message PlayerData
+	{
+		required string username = 2;  
+		required string modelName = 3;		
+	}
+}
+
+message PlayerS2CEvt{
+		required string username = 1;  
+		required string modelName = 2;	
+}
