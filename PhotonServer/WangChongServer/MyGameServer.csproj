@@ -82,7 +82,10 @@
     <Compile Include="Handler\SyncTransformHandler.cs" />
     <Compile Include="Manager\BombMgr.cs" />
     <Compile Include="Manager\ServerMgr.cs" />
-    <Compile Include="Net\ClientPeer.cs" />
+    <Compile Include="Model\HeroData.cs" />
+    <Compile Include="Model\PlayerData.cs" />
+    <Compile Include="Net\ClientMgr.cs" />
+    <Compile Include="Net\Client.cs" />
     <Compile Include="Net\HandlerMediat.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
     <Compile Include="Manager\IUserManager.cs" />

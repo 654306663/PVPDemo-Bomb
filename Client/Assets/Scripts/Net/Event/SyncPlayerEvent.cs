@@ -31,7 +31,7 @@ namespace Net
 
             Debug.LogError("新玩家进入：" + playerS2CEvt.username);
 
-            BattleSyncMgr.Instance.OnAddPlayerEvent(playerS2CEvt.username, playerS2CEvt.modelName);
+            BattleSyncMgr.Instance.OnAddPlayerEvent(playerS2CEvt.username, playerS2CEvt.modelName, playerS2CEvt.nickName, playerS2CEvt.hp);
         }
 
         void OnSyncRemovePlayerReceived(EventData eventData)

@@ -1,4 +1,5 @@
-﻿using MyGameServer.Tools;
+﻿using MyGameServer.Net;
+using MyGameServer.Tools;
 using Photon.SocketServer;
 using System;
 using System.Collections.Generic;
@@ -58,9 +59,9 @@ namespace MyGameServer.Threads
             openBombS2CEvt.openType = ProtoData.OpemBombS2CEvt.OpenBombType.Normal;
             CalculateDamage(bombData, openBombS2CEvt);
             byte[] bytes = BinSerializer.Serialize(openBombS2CEvt);
-            foreach (ClientPeer tempPeer in MyGameServer.Instance.peerList)
+            foreach (Client tempPeer in ClientMgr.Instance.BattlePeerList)
             {
-                if (!string.IsNullOrEmpty(tempPeer.username))
+                if (!string.IsNullOrEmpty(tempPeer.playerData.username))
                 {
                     EventData ed = new EventData((byte)MessageCode.OpenBomb);
                     Dictionary<byte, object> data = new Dictionary<byte, object>();
@@ -74,16 +75,18 @@ namespace MyGameServer.Threads
         void CalculateDamage(BombData bombData, ProtoData.OpemBombS2CEvt openBombS2CEvt)
         {
             //装载PlayerData里面的信息
-            foreach (ClientPeer peer in MyGameServer.Instance.peerList)//遍历所有客户段
+            foreach (Client peer in ClientMgr.Instance.BattlePeerList)//遍历所有客户段
             {
-                if (string.IsNullOrEmpty(peer.username) == false)//取得当前已经登陆的客户端
+                if (string.IsNullOrEmpty(peer.playerData.username) == false)//取得当前已经登陆的客户端
                 {
-                    float lenght = (float)Math.Sqrt(Math.Pow(peer.x - bombData.endX, 2.0) + Math.Pow(peer.y - bombData.endY, 2.0) + Math.Pow(peer.z - bombData.endZ, 2.0));
+                    float lenght = (float)Math.Sqrt(Math.Pow(peer.playerData.heroData.x - bombData.endX, 2.0) + Math.Pow(peer.playerData.heroData.y - bombData.endY, 2.0) + Math.Pow(peer.playerData.heroData.z - bombData.endZ, 2.0));
                     if(lenght < bombData.damageRange)
                     {
                         ProtoData.OpemBombS2CEvt.BeHitData beHitData = new ProtoData.OpemBombS2CEvt.BeHitData();
-                        beHitData.username = peer.username;
+                        beHitData.username = peer.playerData.username;
                         beHitData.lossHp = (int)((bombData.damageRange - lenght) * 10);
+                        peer.playerData.heroData.hp -= beHitData.lossHp;
+                        beHitData.hp = peer.playerData.heroData.hp;
                         openBombS2CEvt.beHitData.Add(beHitData);
                     }
                 }

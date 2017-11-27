@@ -7,5 +7,7 @@ public class GlobleHeroData {
 
     public static string heroModelName;
 
-    
+    public static string nickName;
+
+
 }

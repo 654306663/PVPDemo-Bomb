@@ -22,6 +22,20 @@ namespace ProtoData
       get { return _modelName; }
       set { _modelName = value; }
     }
+    private string _nickName;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"nickName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string nickName
+    {
+      get { return _nickName; }
+      set { _nickName = value; }
+    }
+    private int _hp;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int hp
+    {
+      get { return _hp; }
+      set { _hp = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -58,6 +72,20 @@ namespace ProtoData
       get { return _modelName; }
       set { _modelName = value; }
     }
+    private string _nickName;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"nickName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string nickName
+    {
+      get { return _nickName; }
+      set { _nickName = value; }
+    }
+    private int _hp;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int hp
+    {
+      get { return _hp; }
+      set { _hp = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -86,6 +114,20 @@ namespace ProtoData
     {
       get { return _modelName; }
       set { _modelName = value; }
+    }
+    private string _nickName;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"nickName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string nickName
+    {
+      get { return _nickName; }
+      set { _nickName = value; }
+    }
+    private int _hp;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"hp", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int hp
+    {
+      get { return _hp; }
+      set { _hp = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

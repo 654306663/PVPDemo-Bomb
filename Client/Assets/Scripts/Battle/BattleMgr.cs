@@ -22,6 +22,7 @@ public class BattleMgr : MonoBehaviour {
         mainHero = Instantiate(Resources.Load("Prefabs/Heros/" + GlobleHeroData.heroModelName) as GameObject);
         PlayerController playerController = mainHero.GetComponent<PlayerController>();
         playerController.heroData.Username = GlobleHeroData.username;
+        playerController.heroData.NickName = GlobleHeroData.nickName;
         playerController.heroData.Hp = 100;
 
         //mainHero.transform.position = MapMgr.Instance.emptyItemList[Random.Range(0, MapMgr.Instance.emptyItemList.Count)];

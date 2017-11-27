@@ -11,6 +11,8 @@ public class ChooseHeroPanel : MonoBehaviour {
     Button randomButton;
     Button battleButton;
 
+    InputField nickNameInput;
+
     string selectHeroName;
 
 	// Use this for initialization
@@ -18,6 +20,7 @@ public class ChooseHeroPanel : MonoBehaviour {
     {
         randomButton = transform.Find("RandomButton").GetComponent<Button>();
         battleButton = transform.Find("BattleButton").GetComponent<Button>();
+        nickNameInput = transform.Find("NickNameInput").GetComponent<InputField>();
 
         randomButton.onClick.AddListener(OnRandomEvent);
         battleButton.onClick.AddListener(OnBattleEvent);
@@ -40,6 +43,7 @@ public class ChooseHeroPanel : MonoBehaviour {
     void OnBattleEvent()
     {
         GlobleHeroData.heroModelName = selectHeroName;
+        GlobleHeroData.nickName = nickNameInput.text;
         SceneMgr.LoadScene(SceneType.GameScene);
     }
 

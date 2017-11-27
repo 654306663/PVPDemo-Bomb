@@ -1,5 +1,7 @@
 message PlayerC2S{
 	required string modelName = 1;	
+	required string nickName = 2;
+	required int32 hp = 3;
 }
 
 message PlayerS2C{
@@ -7,11 +9,15 @@ message PlayerS2C{
 	message PlayerData
 	{
 		required string username = 2;  
-		required string modelName = 3;		
+		required string modelName = 3;
+		required string nickName = 4;
+		required int32 hp = 5;
 	}
 }
 
 message PlayerS2CEvt{
 		required string username = 1;  
 		required string modelName = 2;	
+		required string nickName = 3;
+		required int32 hp = 4;
 }

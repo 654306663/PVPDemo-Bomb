@@ -9,6 +9,7 @@ using System.IO;
 using ExitGames.Logging.Log4Net;
 using log4net.Config;
 using MyGameServer.Manager;
+using MyGameServer.Net;
 
 namespace MyGameServer
 {
@@ -25,16 +26,13 @@ namespace MyGameServer
 
         public static MyGameServer Instance { get; private set; }
 
-        public List<ClientPeer> peerList = new List<ClientPeer>(); // 通过这个集合可以访问到所有客户端的Peer，从而向任何一个客户端发送数据
-
-
         // 当一个客户端请求连接的时候，服务器端就会调用这个方法
         // 我们使用peerbase,表示和一个客户端的链接,然后photon就会把这些链接管理起来
         protected override PeerBase CreatePeer(InitRequest initRequest)
         {
             log.Info("一个客户端连接进来了！");
-            ClientPeer peer = new ClientPeer(initRequest);//每链接一个客户端过来我们就把这个客户端存储起来添加到List里面
-            peerList.Add(peer);
+            Client peer = new Client(initRequest);//每链接一个客户端过来我们就把这个客户端存储起来添加到List里面
+            ClientMgr.Instance.allPeerList.Add(peer);
             return peer;
         }
         //初始化(当整个服务器启动起来的时候调用这个初始化)

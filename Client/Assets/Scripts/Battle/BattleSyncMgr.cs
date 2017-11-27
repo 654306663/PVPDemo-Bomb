@@ -53,17 +53,18 @@ public class BattleSyncMgr : MonoBehaviour
     {
         for (int i = 0; i < dataList.Count; i++)
         {
-            OnAddPlayerEvent(dataList[i].username, dataList[i].modelName);
+            OnAddPlayerEvent(dataList[i].username, dataList[i].modelName, dataList[i].nickName, dataList[i].hp);
         }
     }
 
-    public void OnAddPlayerEvent(string username, string heroModelName)
+    public void OnAddPlayerEvent(string username, string heroModelName, string nickName, int hp)
     {
         GameObject go = Instantiate(Resources.Load("Prefabs/Heros/" + heroModelName) as GameObject);
         go.GetComponent<FSMController>().system.playerType = PlayerType.Other;
         PlayerController playerController = go.GetComponent<PlayerController>();
         playerController.heroData.Username = username;
-        playerController.heroData.Hp = 100;
+        playerController.heroData.NickName = nickName;
+        playerController.heroData.Hp = hp;
 
         playerDic.Add(username, playerController);//利用集合保存所有的其他客户端
 

@@ -4,7 +4,7 @@ using Photon.SocketServer;
 
 public class HandlerMediat {
 
-    public delegate void Act(MyGameServer.ClientPeer peer, OperationRequest operationRequest, SendParameters sendParameters);
+    public delegate void Act(MyGameServer.Client peer, OperationRequest operationRequest, SendParameters sendParameters);
 
     static Dictionary<MessageCode, Delegate> messageTable = new Dictionary<MessageCode, Delegate>();
 
@@ -55,7 +55,7 @@ public class HandlerMediat {
         }
     }
 
-    public static void Dispatch(MessageCode type, MyGameServer.ClientPeer peer, OperationRequest operationRequest, SendParameters sendParameters)
+    public static void Dispatch(MessageCode type, MyGameServer.Client peer, OperationRequest operationRequest, SendParameters sendParameters)
     {
         Delegate d;
         if (messageTable.TryGetValue(type, out d))

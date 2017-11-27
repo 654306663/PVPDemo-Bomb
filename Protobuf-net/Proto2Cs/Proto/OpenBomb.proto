@@ -11,5 +11,6 @@ message OpemBombS2CEvt{
 	message BeHitData{
 		required string username = 4;
 		required int32 lossHp = 5;
+		required int32 hp = 6;
 	}
 }

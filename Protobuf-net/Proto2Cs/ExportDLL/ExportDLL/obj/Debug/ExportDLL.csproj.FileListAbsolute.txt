@@ -7,3 +7,12 @@ D:\WangChongProject\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\ProtoDat
 D:\WangChongProject\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\ProtoData.dll
 D:\WangChongProject\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\obj\Debug\ProtoData.dll
 D:\WangChongProject\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\obj\Debug\ExportDLL.csprojResolveAssemblyReference.cache
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\ProtoData.dll.config
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\ProtoData.dll
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\ProtoData.pdb
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\protobuf-net.dll
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\protobuf-net.pdb
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\bin\Debug\protobuf-net.xml
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\obj\Debug\ExportDLL.csprojResolveAssemblyReference.cache
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\obj\Debug\ProtoData.dll
+D:\WangChongProject\PVPDemo-Bomb\Protobuf-net\Proto2Cs\ExportDLL\ExportDLL\obj\Debug\ProtoData.pdb

@@ -1,4 +1,5 @@
 ﻿using MyGameServer.Manager;
+using MyGameServer.Net;
 using MyGameServer.Threads;
 using MyGameServer.Tools;
 using Photon.SocketServer;
@@ -20,7 +21,7 @@ namespace MyGameServer.Handler
         }
 
         //获取客户端位置请求的处理的代码
-        public void OnAddBombReceived(ClientPeer peer, OperationRequest operationRequest, SendParameters sendParameters)
+        public void OnAddBombReceived(Client peer, OperationRequest operationRequest, SendParameters sendParameters)
         {
 
             //接收位置并保持起来
@@ -28,7 +29,7 @@ namespace MyGameServer.Handler
             ProtoData.AddBombC2S addBombC2S = BinSerializer.DeSerialize<ProtoData.AddBombC2S>(bytes);
 
             ProtoData.AddBombS2CEvt addBombS2CEvt = new ProtoData.AddBombS2CEvt();
-            addBombS2CEvt.username = peer.username;
+            addBombS2CEvt.username = peer.playerData.username;
             addBombS2CEvt.bombType = addBombC2S.bombType;
             addBombS2CEvt.bombId = BombMgr.Instance.GetBombId();
             addBombS2CEvt.startX = addBombC2S.startX;
@@ -39,9 +40,9 @@ namespace MyGameServer.Handler
             addBombS2CEvt.endZ = addBombC2S.endZ;
 
             byte[] bytes2 = BinSerializer.Serialize(addBombS2CEvt);
-            foreach (ClientPeer tempPeer in MyGameServer.Instance.peerList)
+            foreach (Client tempPeer in ClientMgr.Instance.BattlePeerList)
             {
-                if (!string.IsNullOrEmpty(tempPeer.username))
+                if (!string.IsNullOrEmpty(tempPeer.playerData.username))
                 {
                     EventData ed = new EventData((byte)MessageCode.AddBomb);
                     Dictionary<byte, object> data = new Dictionary<byte, object>();

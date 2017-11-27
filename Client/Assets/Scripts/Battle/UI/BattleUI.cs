@@ -48,14 +48,15 @@ public class BattleUI : MonoBehaviour {
     void AddOneHeroItem(string username)
     {
         GameObject go = Instantiate(Resources.Load("Prefabs/UI/HeroItem")) as GameObject;
-        go.transform.Find("NameLabel").GetComponent<Text>().text = username;
-        go.transform.Find("HpLabel").GetComponent<Text>().text = "100";
         go.transform.SetParent(heroItemParent);
         heroItemDict.Add(username, go);
 
         if (BattleSyncMgr.Instance.playerDic.ContainsKey(username))
         {
             BattleSyncMgr.Instance.playerDic[username].heroData.onHpAction += OnListenerHp;
+
+            go.transform.Find("NameLabel").GetComponent<Text>().text = BattleSyncMgr.Instance.playerDic[username].heroData.NickName;
+            go.transform.Find("HpLabel").GetComponent<Text>().text = BattleSyncMgr.Instance.playerDic[username].heroData.Hp.ToString();
         }
     }
 

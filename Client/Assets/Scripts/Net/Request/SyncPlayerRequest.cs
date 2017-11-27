@@ -13,6 +13,8 @@ public class SyncPlayerRequest : Singleton<SyncPlayerRequest>
     {
         PlayerC2S playerC2S = new PlayerC2S();
         playerC2S.modelName = GlobleHeroData.heroModelName;
+        playerC2S.nickName = GlobleHeroData.nickName;
+        playerC2S.hp = 100;
         byte[] bytes = BinSerializer.Serialize(playerC2S);
 
         Dictionary<byte, object> data = new Dictionary<byte, object>();

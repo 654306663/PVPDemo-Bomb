@@ -28,7 +28,7 @@ namespace MyGameServer.Handler
         }
 
         // 登陆请求的处理的代码
-        void OnLoginReceived(ClientPeer peer, OperationRequest operationRequest, SendParameters sendParameters)
+        void OnLoginReceived(Client peer, OperationRequest operationRequest, SendParameters sendParameters)
         {
             //根据发送过来的请求获得用户名和密码
             byte[] bytes = DictTool.GetValue<byte, object>(operationRequest.Parameters, 1) as byte[];
@@ -42,7 +42,7 @@ namespace MyGameServer.Handler
             if (isSuccess)
             {
                 response.ReturnCode = (short)ReturnCode.Success;
-                peer.username = loginC2S.username;
+                peer.playerData.username = loginC2S.username;
             }
             else//否则返回失败给客户端
             {
@@ -58,7 +58,7 @@ namespace MyGameServer.Handler
         }
 
         // 注册请求的处理的代码
-        void OnRegisterReceived(ClientPeer peer, OperationRequest operationRequest, SendParameters sendParameters)
+        void OnRegisterReceived(Client peer, OperationRequest operationRequest, SendParameters sendParameters)
         {
             string username = DictTool.GetValue<byte, object>(operationRequest.Parameters, 1) as string;
             string password = DictTool.GetValue<byte, object>(operationRequest.Parameters, 2) as string;

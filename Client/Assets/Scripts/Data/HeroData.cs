@@ -11,6 +11,7 @@ public class HeroData {
     #region 属性
     private int id;
     private string username;
+    private string nickName;
     private int hp;
     #endregion
 
@@ -20,5 +21,7 @@ public class HeroData {
     public int Hp { get { return hp; } set { hp = value; if (onHpAction != null) {onHpAction(Username, hp); } } }
 
     public string Username { get { return username; } set { username = value; } }
+
+    public string NickName { get { return nickName; } set { nickName = value; } }
     #endregion
 }
