@@ -10,10 +10,10 @@
 // Generated from: Proto/Player.proto
 namespace ProtoData
 {
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerC2S")]
-  public partial class PlayerC2S : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AddPlayerC2S")]
+  public partial class AddPlayerC2S : global::ProtoBuf.IExtensible
   {
-    public PlayerC2S() {}
+    public AddPlayerC2S() {}
     
     private string _modelName;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"modelName", DataFormat = global::ProtoBuf.DataFormat.Default)]
@@ -41,14 +41,14 @@ namespace ProtoData
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerS2C")]
-  public partial class PlayerS2C : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AddPlayerS2C")]
+  public partial class AddPlayerS2C : global::ProtoBuf.IExtensible
   {
-    public PlayerS2C() {}
+    public AddPlayerS2C() {}
     
-    private readonly global::System.Collections.Generic.List<PlayerS2C.PlayerData> _dataList = new global::System.Collections.Generic.List<PlayerS2C.PlayerData>();
+    private readonly global::System.Collections.Generic.List<AddPlayerS2C.PlayerData> _dataList = new global::System.Collections.Generic.List<AddPlayerS2C.PlayerData>();
     [global::ProtoBuf.ProtoMember(1, Name=@"dataList", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<PlayerS2C.PlayerData> dataList
+    public global::System.Collections.Generic.List<AddPlayerS2C.PlayerData> dataList
     {
       get { return _dataList; }
     }
@@ -86,6 +86,13 @@ namespace ProtoData
       get { return _hp; }
       set { _hp = value; }
     }
+    private int _killCount;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = true, Name=@"killCount", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int killCount
+    {
+      get { return _killCount; }
+      set { _killCount = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -96,10 +103,10 @@ namespace ProtoData
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerS2CEvt")]
-  public partial class PlayerS2CEvt : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AddPlayerS2CEvt")]
+  public partial class AddPlayerS2CEvt : global::ProtoBuf.IExtensible
   {
-    public PlayerS2CEvt() {}
+    public AddPlayerS2CEvt() {}
     
     private string _username;
     [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"username", DataFormat = global::ProtoBuf.DataFormat.Default)]
@@ -128,6 +135,37 @@ namespace ProtoData
     {
       get { return _hp; }
       set { _hp = value; }
+    }
+    private int _killCount;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"killCount", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int killCount
+    {
+      get { return _killCount; }
+      set { _killCount = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"PlayerDeadS2CEvt")]
+  public partial class PlayerDeadS2CEvt : global::ProtoBuf.IExtensible
+  {
+    public PlayerDeadS2CEvt() {}
+    
+    private string _deadUsername;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"deadUsername", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string deadUsername
+    {
+      get { return _deadUsername; }
+      set { _deadUsername = value; }
+    }
+    private string _killerUsername;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"killerUsername", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string killerUsername
+    {
+      get { return _killerUsername; }
+      set { _killerUsername = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)

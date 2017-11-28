@@ -11,6 +11,9 @@ public enum FSMTransition
     IdleToThrow,
     RunToThrow,
     ThrowToIdle,
+    IdleToDead,     
+    RunToDead,     
+    ThrowToDead,
 }
 
 // 几种状态
@@ -20,6 +23,7 @@ public enum FSMStateId
     Idle,     // 
     Run,      // 
     Throw,
+    Dead,
 }
 
 // 所有状态继承该基类

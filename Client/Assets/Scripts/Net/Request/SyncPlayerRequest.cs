@@ -11,7 +11,7 @@ public class SyncPlayerRequest : Singleton<SyncPlayerRequest>
     /// </summary>
     public void SendSyncAddPlayerRequest()
     {
-        PlayerC2S playerC2S = new PlayerC2S();
+        AddPlayerC2S playerC2S = new AddPlayerC2S();
         playerC2S.modelName = GlobleHeroData.heroModelName;
         playerC2S.nickName = GlobleHeroData.nickName;
         playerC2S.hp = 100;

@@ -1,10 +1,10 @@
-message PlayerC2S{
+message AddPlayerC2S{
 	required string modelName = 1;	
 	required string nickName = 2;
 	required int32 hp = 3;
 }
 
-message PlayerS2C{
+message AddPlayerS2C{
 	repeated PlayerData dataList = 1;
 	message PlayerData
 	{
@@ -12,12 +12,19 @@ message PlayerS2C{
 		required string modelName = 3;
 		required string nickName = 4;
 		required int32 hp = 5;
+		required int32 killCount = 6;
 	}
 }
 
-message PlayerS2CEvt{
+message AddPlayerS2CEvt{
 		required string username = 1;  
 		required string modelName = 2;	
 		required string nickName = 3;
 		required int32 hp = 4;
+		required int32 killCount = 5;
+}
+
+message PlayerDeadS2CEvt{
+		required string deadUsername = 1;
+		required string killerUsername = 2;
 }

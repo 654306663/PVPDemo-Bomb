@@ -43,7 +43,7 @@ public class BombMgr{
         {
             if(BattleSyncMgr.Instance.playerDic.ContainsKey(beHitDataList[i].username))
             {
-                BattleSyncMgr.Instance.playerDic[beHitDataList[i].username].heroData.Hp -= beHitDataList[i].lossHp;
+                BattleSyncMgr.Instance.playerDic[beHitDataList[i].username].heroData.Hp = beHitDataList[i].hp;
             }
         }
     }

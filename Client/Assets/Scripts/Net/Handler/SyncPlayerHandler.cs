@@ -27,7 +27,7 @@ namespace Net
         void OnSyncPlayerReceived(OperationResponse response)
         {
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(response.Parameters, 1);
-            PlayerS2C playerS2C = BinSerializer.DeSerialize<PlayerS2C>(bytes);
+            AddPlayerS2C playerS2C = BinSerializer.DeSerialize<AddPlayerS2C>(bytes);
 
             BattleSyncMgr.Instance.OnSyncPlayerResponse(playerS2C.dataList);
         }

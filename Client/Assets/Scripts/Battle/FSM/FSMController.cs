@@ -17,6 +17,7 @@ public class FSMController : MonoBehaviour
         IdleState idleState = new IdleState(gameObject);
         RunState runState = new RunState(gameObject);
         ThrowState throwState = new ThrowState(gameObject);
+        DeadState deadState = new DeadState(gameObject);
 
         // 注册切换条件 对应的 状态
         idleState.AddTransition(FSMTransition.IdleToRun, FSMStateId.Run);
@@ -27,9 +28,14 @@ public class FSMController : MonoBehaviour
 
         throwState.AddTransition(FSMTransition.ThrowToIdle, FSMStateId.Idle);
 
+        idleState.AddTransition(FSMTransition.IdleToDead, FSMStateId.Dead);
+        runState.AddTransition(FSMTransition.RunToDead, FSMStateId.Dead);
+        throwState.AddTransition(FSMTransition.ThrowToDead, FSMStateId.Dead);
+
         system.AddState(idleState);
         system.AddState(runState);
         system.AddState(throwState);
+        system.AddState(deadState);
 
         system.Start(FSMStateId.Idle);
     }

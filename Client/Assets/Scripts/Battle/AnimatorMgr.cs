@@ -10,7 +10,7 @@ public enum AnimatorType
     Run,
     IdleThrow,
     RunThrow,
-    Death
+    Dead
 }
 
 public class AnimatorMgr {
@@ -39,7 +39,7 @@ public class AnimatorMgr {
             case AnimatorType.RunThrow:
                 name = "Base.RunThrow";
                 break;
-            case AnimatorType.Death:
+            case AnimatorType.Dead:
                 name = "Base.Death";
                 break;
             default:

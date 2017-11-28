@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Battle\Bomb\BombData.cs" />
     <Compile Include="Assets\Scripts\Battle\Bomb\BombMgr.cs" />
     <Compile Include="Assets\Scripts\Battle\CameraMgr.cs" />
+    <Compile Include="Assets\Scripts\Battle\FSM\DeadState.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\FSMController.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\FSMState.cs" />
     <Compile Include="Assets\Scripts\Battle\FSM\FSMSystem.cs" />
@@ -113,6 +114,8 @@
     <Compile Include="Assets\Scripts\Battle\HeroAnimatorState.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\BattleUI.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\FlutterTextUI.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\HeroItemUI.cs" />
     <Compile Include="Assets\Scripts\Data\GlobleHeroData.cs" />
     <Compile Include="Assets\Scripts\Data\HeroData.cs" />
     <Compile Include="Assets\Scripts\Joystick\SkillJoystick.cs" />

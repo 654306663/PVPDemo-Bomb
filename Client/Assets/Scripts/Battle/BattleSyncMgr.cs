@@ -49,15 +49,15 @@ public class BattleSyncMgr : MonoBehaviour
     }
 
     //实例化其他客户端的角色
-    public void OnSyncPlayerResponse(List<PlayerS2C.PlayerData> dataList)
+    public void OnSyncPlayerResponse(List<AddPlayerS2C.PlayerData> dataList)
     {
         for (int i = 0; i < dataList.Count; i++)
         {
-            OnAddPlayerEvent(dataList[i].username, dataList[i].modelName, dataList[i].nickName, dataList[i].hp);
+            OnAddPlayerEvent(dataList[i].username, dataList[i].modelName, dataList[i].nickName, dataList[i].hp, dataList[i].killCount);
         }
     }
 
-    public void OnAddPlayerEvent(string username, string heroModelName, string nickName, int hp)
+    public void OnAddPlayerEvent(string username, string heroModelName, string nickName, int hp, int killCount)
     {
         GameObject go = Instantiate(Resources.Load("Prefabs/Heros/" + heroModelName) as GameObject);
         go.GetComponent<FSMController>().system.playerType = PlayerType.Other;
@@ -65,20 +65,53 @@ public class BattleSyncMgr : MonoBehaviour
         playerController.heroData.Username = username;
         playerController.heroData.NickName = nickName;
         playerController.heroData.Hp = hp;
+        playerController.heroData.KillCount = killCount;
 
         playerDic.Add(username, playerController);//利用集合保存所有的其他客户端
+
+        if(playerController.heroData.Hp <= 0)
+        {
+            CoroutineUtil.Instance.WaitTime(0, false, () =>{
+                playerDic[username].fsmController.system.PerformTransition(FSMTransition.IdleToDead);
+            });
+        }
 
         MessageMediator.Dispatch(MessageMediatType.AddPlayer, username);
     }
 
     public void OnRemovePlayerEvent(string username)
     {
-        MessageMediator.Dispatch(MessageMediatType.RemovePlayer, username);
-
         if (playerDic.ContainsKey(username) && playerDic[username] != null)
         {
             Destroy(playerDic[username].gameObject);
             playerDic.Remove(username);
+        }
+
+        MessageMediator.Dispatch(MessageMediatType.RemovePlayer, username);
+    }
+
+    public void OnPlayerDeadEvent(string deadUsername, string killerUsername)
+    {
+        if (playerDic.ContainsKey(deadUsername))
+        {
+            FSMTransition transition = FSMTransition.Empty;
+            switch (playerDic[deadUsername].fsmController.system.CurrentState.StateId)
+            {
+                case FSMStateId.Idle:
+                    transition = FSMTransition.IdleToDead;
+                    break;
+                case FSMStateId.Run:
+                    transition = FSMTransition.RunToDead;
+                    break;
+                case FSMStateId.Throw:
+                    transition = FSMTransition.ThrowToDead;
+                    break;
+            }
+            playerDic[deadUsername].fsmController.system.PerformTransition(transition);
+        }
+        if (playerDic.ContainsKey(killerUsername) && deadUsername != killerUsername)
+        {
+            playerDic[killerUsername].heroData.KillCount++;
         }
     }
 
@@ -106,8 +139,7 @@ public class BattleSyncMgr : MonoBehaviour
     {
         if (!playerDic.ContainsKey(username)) return;
 
-        FSMController playerController = playerDic[username].GetComponent<FSMController>();
-        playerController.system.PerformTransition(targetTransition, objs);
+        playerDic[username].fsmController.system.PerformTransition(targetTransition, objs);
     }
 
     /// <summary>

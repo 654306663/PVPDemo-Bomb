@@ -6,6 +6,7 @@ public class HeroData {
 
     #region  事件监听
     public Action<string, int> onHpAction;
+    public Action<string, int> onKillCountAction;
     #endregion
 
     #region 属性
@@ -13,6 +14,7 @@ public class HeroData {
     private string username;
     private string nickName;
     private int hp;
+    private int killCount;
     #endregion
 
 
@@ -23,5 +25,7 @@ public class HeroData {
     public string Username { get { return username; } set { username = value; } }
 
     public string NickName { get { return nickName; } set { nickName = value; } }
+
+    public int KillCount { get { return killCount; } set { killCount = value; if (onKillCountAction != null) { onKillCountAction(Username, killCount); } } }
     #endregion
 }

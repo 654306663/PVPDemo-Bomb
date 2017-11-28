@@ -3,6 +3,6 @@
 
     AddPlayer,
     RemovePlayer,
-
+    PlayerDead
     
 }
