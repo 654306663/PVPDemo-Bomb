@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using MyGameServer.Model;
 
 
-namespace MyGameServer.Manager
+namespace MyGameServer.MySql
 {
     interface IUserManager
     {

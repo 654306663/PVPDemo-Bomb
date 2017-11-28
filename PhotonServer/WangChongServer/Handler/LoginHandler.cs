@@ -1,5 +1,6 @@
 ﻿using MyGameServer.Manager;
 using MyGameServer.Model;
+using MyGameServer.MySql;
 using MyGameServer.Tools;
 using Photon.SocketServer;
 using System;

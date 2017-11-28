@@ -52,7 +52,7 @@ namespace Net
 
             BattleSyncMgr.Instance.OnPlayerDeadEvent(playerDeadS2CEvt.deadUsername, playerDeadS2CEvt.killerUsername);
 
-            if (BattleUI.Instance != null) BattleUI.Instance.ShowFlutterText(playerDeadS2CEvt.deadUsername, playerDeadS2CEvt.killerUsername);
+            if (BattleUI.Instance != null) BattleUI.Instance.ShowFlutterText(playerDeadS2CEvt.deadNickName, playerDeadS2CEvt.killerNickName);
         }
     }
 

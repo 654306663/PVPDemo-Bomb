@@ -88,9 +88,9 @@
     <Compile Include="Net\Client.cs" />
     <Compile Include="Net\HandlerMediat.cs" />
     <Compile Include="Handler\LoginHandler.cs" />
-    <Compile Include="Manager\IUserManager.cs" />
-    <Compile Include="Manager\UserManager.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="MySql\IUserManager.cs" />
+    <Compile Include="MySql\UserManager.cs" />
+    <Compile Include="MySql\User.cs" />
     <Compile Include="Net\MyGameServer.cs" />
     <Compile Include="Threads\BombUpdate.cs" />
     <Compile Include="Threads\SyncTransformUpdate.cs" />

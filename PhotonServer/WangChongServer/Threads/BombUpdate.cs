@@ -12,6 +12,8 @@ namespace MyGameServer.Threads
 {
     class BombData
     {
+        public string username;
+        public string nickName;
         public int bombId;
         public float durationTime;
         public float damageRange;
@@ -86,10 +88,54 @@ namespace MyGameServer.Threads
                         beHitData.username = peer.playerData.username;
                         beHitData.lossHp = (int)((bombData.damageRange - lenght) * 10);
                         peer.playerData.heroData.hp -= beHitData.lossHp;
+
+                        if (peer.playerData.heroData.hp < 0)
+                        {
+                            peer.playerData.heroData.hp = 0;
+                            if (peer.playerData.heroData.isLife)
+                            {
+                                peer.playerData.heroData.isLife = false;
+                                SendHeroDead(peer.playerData.username, bombData.username, peer.playerData.nickname, bombData.nickName);
+                            }
+                        }
+
                         beHitData.hp = peer.playerData.heroData.hp;
                         openBombS2CEvt.beHitData.Add(beHitData);
+
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// 发送英雄死亡消息
+        /// </summary>
+        void SendHeroDead(string deadUsername, string killerUsername, string deadNickName, string killerNickName)
+        {
+
+            ProtoData.PlayerDeadS2CEvt playerDeadS2CEvt = new ProtoData.PlayerDeadS2CEvt();
+            playerDeadS2CEvt.deadUsername = deadUsername;
+            playerDeadS2CEvt.killerUsername = killerUsername;
+            playerDeadS2CEvt.deadNickName = deadNickName;
+            playerDeadS2CEvt.killerNickName = killerNickName;
+            byte[] bytes = BinSerializer.Serialize(playerDeadS2CEvt);
+            foreach (Client peer in ClientMgr.Instance.BattlePeerList)//遍历所有客户段
+            {
+                if (string.IsNullOrEmpty(peer.playerData.username) == false)//取得当前已经登陆的客户端
+                {
+                    EventData ed = new EventData((byte)MessageCode.PlayerDead);
+                    Dictionary<byte, object> data = new Dictionary<byte, object>();
+                    data.Add(1, bytes);   
+                    ed.Parameters = data;
+                    peer.SendEvent(ed, new SendParameters()); // 发送事件
+                }
+            }
+
+            if (deadUsername != killerUsername)
+            {
+                Client killerClient = ClientMgr.Instance.BattlePeerList.Find(p => p.playerData.username == killerUsername);
+                if(killerClient != null)
+                    killerClient.playerData.heroData.killCount++;
             }
         }
     }

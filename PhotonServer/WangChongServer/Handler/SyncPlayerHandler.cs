@@ -34,12 +34,14 @@ namespace MyGameServer.Handler
             ClientMgr.Instance.AddBattlePeer(peer);
 
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(operationRequest.Parameters, 1);
-            PlayerC2S playerC2S = BinSerializer.DeSerialize<PlayerC2S>(bytes);
+            AddPlayerC2S playerC2S = BinSerializer.DeSerialize<AddPlayerC2S>(bytes);
             peer.playerData.heroData.modelName = playerC2S.modelName;
             peer.playerData.nickname = playerC2S.nickName;
             peer.playerData.heroData.hp = playerC2S.hp;
+            peer.playerData.heroData.killCount = 0;
+            peer.playerData.heroData.isLife = true;
 
-            PlayerS2C playerS2C = new PlayerS2C();
+            AddPlayerS2C playerS2C = new AddPlayerS2C();
             //取得所有已经登陆（在线玩家）的用户名
             foreach (Client tempPeer in ClientMgr.Instance.BattlePeerList)
             {
@@ -48,11 +50,12 @@ namespace MyGameServer.Handler
                 if (!string.IsNullOrEmpty(tempPeer.playerData.username) && tempPeer != peer)
                 {
                     //把这些客户端的Usernam添加到集合里面
-                    PlayerS2C.PlayerData playerData = new PlayerS2C.PlayerData();
+                    AddPlayerS2C.PlayerData playerData = new AddPlayerS2C.PlayerData();
                     playerData.username = tempPeer.playerData.username;
                     playerData.modelName = tempPeer.playerData.heroData.modelName;
                     playerData.nickName = tempPeer.playerData.nickname;
                     playerData.hp = tempPeer.playerData.heroData.hp;
+                    playerData.killCount = tempPeer.playerData.heroData.killCount;
                     playerS2C.dataList.Add(playerData);
                 }
             }
@@ -65,11 +68,12 @@ namespace MyGameServer.Handler
             peer.SendOperationResponse(response, sendParameters);
 
             // 告诉其它客户端有新的客户端加入
-            PlayerS2CEvt playerS2CEvt = new PlayerS2CEvt();
+            AddPlayerS2CEvt playerS2CEvt = new AddPlayerS2CEvt();
             playerS2CEvt.username = peer.playerData.username;
             playerS2CEvt.modelName = peer.playerData.heroData.modelName;
             playerS2CEvt.nickName = peer.playerData.nickname;
             playerS2CEvt.hp = peer.playerData.heroData.hp;
+            playerS2CEvt.killCount = peer.playerData.heroData.killCount;
             byte[] bytes3 = BinSerializer.Serialize(playerS2CEvt);
             foreach (Client tempPeer in ClientMgr.Instance.BattlePeerList)
             {

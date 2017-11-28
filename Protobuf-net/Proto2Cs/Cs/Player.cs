@@ -167,6 +167,20 @@ namespace ProtoData
       get { return _killerUsername; }
       set { _killerUsername = value; }
     }
+    private string _deadNickName;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"deadNickName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string deadNickName
+    {
+      get { return _deadNickName; }
+      set { _deadNickName = value; }
+    }
+    private string _killerNickName;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = true, Name=@"killerNickName", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string killerNickName
+    {
+      get { return _killerNickName; }
+      set { _killerNickName = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

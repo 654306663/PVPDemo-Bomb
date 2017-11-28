@@ -12,4 +12,6 @@
 
     AddBomb = 210,
     OpenBomb = 211,
+
+    PlayerDead = 220,
 }

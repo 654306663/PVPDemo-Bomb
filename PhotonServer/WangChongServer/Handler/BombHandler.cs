@@ -23,7 +23,6 @@ namespace MyGameServer.Handler
         //获取客户端位置请求的处理的代码
         public void OnAddBombReceived(Client peer, OperationRequest operationRequest, SendParameters sendParameters)
         {
-
             //接收位置并保持起来
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(operationRequest.Parameters, 1);
             ProtoData.AddBombC2S addBombC2S = BinSerializer.DeSerialize<ProtoData.AddBombC2S>(bytes);
@@ -53,6 +52,8 @@ namespace MyGameServer.Handler
             }
 
             BombData bombData = new BombData();
+            bombData.username = peer.playerData.username;
+            bombData.nickName = peer.playerData.nickname;
             bombData.bombId = addBombS2CEvt.bombId;
             bombData.damageRange = addBombC2S.damageRange;
             bombData.durationTime = addBombC2S.durationTime;

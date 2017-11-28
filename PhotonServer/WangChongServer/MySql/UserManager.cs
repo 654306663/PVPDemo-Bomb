@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using MyGameServer.Model;
 using NHibernate;
 using NHibernate.Criterion;
 
-namespace MyGameServer.Manager
+namespace MyGameServer.MySql
 {
     class UserManager : IUserManager
     {

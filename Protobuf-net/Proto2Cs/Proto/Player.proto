@@ -27,4 +27,6 @@ message AddPlayerS2CEvt{
 message PlayerDeadS2CEvt{
 		required string deadUsername = 1;
 		required string killerUsername = 2;
+		required string deadNickName = 3;
+		required string killerNickName = 4;
 }

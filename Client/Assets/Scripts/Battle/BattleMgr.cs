@@ -14,7 +14,6 @@ public class BattleMgr : MonoBehaviour {
         Instance = this;
         bombMgr = new BombMgr();
         InitHero();
-        SetLight();
     }
     
     void InitHero()
@@ -25,15 +24,6 @@ public class BattleMgr : MonoBehaviour {
         playerController.heroData.NickName = GlobleHeroData.nickName;
         playerController.heroData.Hp = 100;
 
-        //mainHero.transform.position = MapMgr.Instance.emptyItemList[Random.Range(0, MapMgr.Instance.emptyItemList.Count)];
-    }
-
-    void SetLight()
-    {
-        Transform pointLight = GameObject.Find("Point light").transform;
-        pointLight.SetParent(mainHero.transform);
-        pointLight.localPosition = new Vector3(0, 15, 0);
-        pointLight.localEulerAngles = Vector3.zero;
-        pointLight.localScale = Vector3.one;
+        mainHero.transform.position = MapMgr.Instance.emptyItemList[Random.Range(0, MapMgr.Instance.emptyItemList.Count)];
     }
 }

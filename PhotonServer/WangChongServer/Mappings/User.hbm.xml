@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
                    assembly="MyGameServer"
-                   namespace="MyGameServer.Model">
+                   namespace="MyGameServer.MySql">
   <!--assembly:模型所在的程序集-->
   <!--namespace:表示User这个类在那个命名空间下的那个文件内-->
   <class name="User" table="user">

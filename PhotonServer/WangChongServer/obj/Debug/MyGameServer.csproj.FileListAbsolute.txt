@@ -8,3 +8,4 @@ E:\工具\Photon Server\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\MyGameS
 E:\工具\Photon Server\Photon-OnPremise-Server-SDK_v4-0-29-11263\deploy\MyGameServer\bin\MyGameServer.pdb
 D:\VSProject\PhotonServer游戏服务器端教程\WangChongServer\WangChongServer\obj\Debug\MyGameServer.dll
 D:\VSProject\PhotonServer游戏服务器端教程\WangChongServer\WangChongServer\obj\Debug\MyGameServer.pdb
+D:\VSProject\PhotonServer游戏服务器端教程\WangChongServer\WangChongServer\obj\Debug\MyGameServer.csprojResolveAssemblyReference.cache
