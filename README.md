@@ -6,4 +6,4 @@ io类型 多人在线对战游戏Demo，类似蛇蛇大作战、球球大作战�
 
 Client：Unity客户端工程
 PhotonServer：服务器端工程
-Protobuf：通讯数据类
+Protobuf-net：通讯数据类
