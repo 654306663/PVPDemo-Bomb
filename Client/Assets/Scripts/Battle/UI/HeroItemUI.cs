@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class HeroItemUI : MonoBehaviour {
 
     public string username;
+    private string lastUsername = "";
 
     Text nameText;
     Text hpText;
@@ -20,10 +21,10 @@ public class HeroItemUI : MonoBehaviour {
 
     private void OnDestroy()
     {
-        if (BattleSyncMgr.Instance.playerDic.ContainsKey(username))
+        if (BattleSyncMgr.Instance.playerDic.ContainsKey(lastUsername))
         {
-            BattleSyncMgr.Instance.playerDic[username].heroData.onHpAction = null;
-            BattleSyncMgr.Instance.playerDic[username].heroData.onKillCountAction = null;
+            BattleSyncMgr.Instance.playerDic[lastUsername].heroData.onHpAction -= OnListenerHp;
+            BattleSyncMgr.Instance.playerDic[lastUsername].heroData.onKillCountAction -= OnListenerKillCount;
         }
     }
 
@@ -52,8 +53,18 @@ public class HeroItemUI : MonoBehaviour {
             rankText.color = Color.white;
         }
 
-        BattleSyncMgr.Instance.playerDic[username].heroData.onHpAction = OnListenerHp;
-        BattleSyncMgr.Instance.playerDic[username].heroData.onKillCountAction = OnListenerKillCount;
+        if (BattleSyncMgr.Instance.playerDic.ContainsKey(lastUsername))
+        {
+            BattleSyncMgr.Instance.playerDic[lastUsername].heroData.onHpAction -= OnListenerHp;
+            BattleSyncMgr.Instance.playerDic[lastUsername].heroData.onKillCountAction -= OnListenerKillCount;
+        }
+        if (BattleSyncMgr.Instance.playerDic.ContainsKey(username))
+        {
+            BattleSyncMgr.Instance.playerDic[username].heroData.onHpAction += OnListenerHp;
+            BattleSyncMgr.Instance.playerDic[username].heroData.onKillCountAction += OnListenerKillCount;
+        }
+
+        lastUsername = username;
     }
 
     void Init()

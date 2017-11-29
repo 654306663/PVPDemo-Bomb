@@ -14,6 +14,8 @@ public class BattleUI : MonoBehaviour {
 
     private List<HeroItemUI> heroItemList;
 
+    private HeroItemUI selfHeroItem;
+
     void Awake()
     {
         Instance = this;
@@ -23,11 +25,20 @@ public class BattleUI : MonoBehaviour {
     void Start () {
 		backButton = transform.Find("BackButton").GetComponent<Button>();
         heroItemParent = transform.Find("HeroScrollView/Grid").transform;
+        selfHeroItem = transform.Find("HeroItem").GetComponent<HeroItemUI>();
         backButton.onClick.AddListener(OnBackEvent);
 
         heroItemList = new List<HeroItemUI>();
 
         AddHeroItem();
+
+        selfHeroItem.SetData(BattleMgr.Instance.selfPlayerController.heroData.Username, BattleMgr.Instance.selfPlayerController.heroData.NickName,
+            BattleMgr.Instance.selfPlayerController.heroData.Hp, BattleMgr.Instance.selfPlayerController.heroData.KillCount, 0);
+        
+        //GameObject hud = Instantiate(Resources.Load("Prefabs/UI/HeroHud")) as GameObject;
+        //hud.transform.SetParent(BattleMgr.Instance.selfPlayerController.transform, false);
+        //hud.GetComponent<HeroHudUI>().SetData(BattleMgr.Instance.selfPlayerController.heroData.Username, BattleMgr.Instance.selfPlayerController.heroData.NickName,
+        //    BattleMgr.Instance.selfPlayerController.heroData.Hp);
 
         MessageMediator.AddListener<string>(MessageMediatType.AddPlayer, AddOneHeroItem);
         MessageMediator.AddListener<string>(MessageMediatType.RemovePlayer, RemoveOnHeroItem);
@@ -66,6 +77,13 @@ public class BattleUI : MonoBehaviour {
             HeroItemUI heroItemUI = go.GetComponent<HeroItemUI>();
             heroItemList.Add(heroItemUI);
         }
+
+
+        GameObject hud = Instantiate(Resources.Load("Prefabs/UI/HeroHud")) as GameObject;
+        hud.name = "HeroHud";
+        hud.transform.SetParent(BattleSyncMgr.Instance.playerDic[username].transform, false);
+        hud.GetComponent<HeroHudUI>().SetData(BattleSyncMgr.Instance.playerDic[username].heroData.Username, BattleSyncMgr.Instance.playerDic[username].heroData.NickName
+            , BattleSyncMgr.Instance.playerDic[username].heroData.Hp);
 
         SetHeroItemData();
     }

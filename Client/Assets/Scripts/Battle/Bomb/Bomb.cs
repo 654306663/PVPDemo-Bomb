@@ -28,10 +28,13 @@ public class Bomb : MonoBehaviour {
         time = 0;
     }
 
+    /// <summary>
+    /// 爆炸
+    /// </summary>
     public void Open()
     {
         BattleMgr.Instance.bombMgr.RemoveBomb(bombData.id);
-        GameObject go = Instantiate(Resources.Load("Prefabs/Effect/Detonator-Wide")) as GameObject;
+        GameObject go = Instantiate(Resources.Load("Prefabs/Effect/explosion_stylized_large_originalFire")) as GameObject;
         go.transform.position = transform.position + new Vector3(0, 1, 0);
         go.transform.localEulerAngles = Vector3.zero;
         go.transform.localScale = Vector3.one;

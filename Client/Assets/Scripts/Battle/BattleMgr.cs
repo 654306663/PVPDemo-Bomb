@@ -8,21 +8,26 @@ public class BattleMgr : MonoBehaviour {
     public BombMgr bombMgr;
 
     public GameObject mainHero;
-	// Use this for initialization
-	void Awake ()
+
+    public PlayerController selfPlayerController;
+    // Use this for initialization
+    void Awake ()
     {
         Instance = this;
         bombMgr = new BombMgr();
         InitHero();
     }
     
+    /// <summary>
+    /// 初始化主英雄
+    /// </summary>
     void InitHero()
     {
         mainHero = Instantiate(Resources.Load("Prefabs/Heros/" + GlobleHeroData.heroModelName) as GameObject);
-        PlayerController playerController = mainHero.GetComponent<PlayerController>();
-        playerController.heroData.Username = GlobleHeroData.username;
-        playerController.heroData.NickName = GlobleHeroData.nickName;
-        playerController.heroData.Hp = 100;
+        selfPlayerController = mainHero.GetComponent<PlayerController>();
+        selfPlayerController.heroData.Username = GlobleHeroData.username;
+        selfPlayerController.heroData.NickName = GlobleHeroData.nickName;
+        selfPlayerController.heroData.Hp = 100;
 
         mainHero.transform.position = MapMgr.Instance.emptyItemList[Random.Range(0, MapMgr.Instance.emptyItemList.Count)];
     }

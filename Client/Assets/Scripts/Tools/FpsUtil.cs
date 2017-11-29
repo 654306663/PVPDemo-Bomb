@@ -31,7 +31,7 @@ public class FpsUtil : MonoBehaviour
         GUIStyle style = new GUIStyle();
         style.fontSize = 40;
         style.normal.textColor = Color.red;
-        GUI.Label(new Rect(10, 10, 400, 400), "FPS:" + f_Fps.ToString("f2"), style);
+        GUI.Label(new Rect(10, 10, 400, 400), "Fps:" + f_Fps.ToString("f2"), style);
     }
 
     void Update()

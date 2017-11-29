@@ -35,6 +35,7 @@ namespace Net
             ReturnCode returnCode = (ReturnCode)response.ReturnCode;
             if (returnCode == ReturnCode.Success)
             {
+                LoginHintTextUI.Instance.SetText("用户名和密码验证成功", Color.green);
                 Debug.LogError("用户名和密码验证成功");
 
                 byte[] bytes = DictTool.GetValue<byte, object>(response.Parameters, 1) as byte[];
@@ -47,6 +48,7 @@ namespace Net
             }
             else if (returnCode == ReturnCode.Failed)
             {
+                LoginHintTextUI.Instance.SetText("用户名或密码错误", Color.red);
                 Debug.LogError("用户名或密码错误");
             }
         }
@@ -59,11 +61,13 @@ namespace Net
             ReturnCode returnCode = (ReturnCode)response.ReturnCode;
             if (returnCode == ReturnCode.Success)
             {
+                LoginHintTextUI.Instance.SetText("注册成功，请返回登陆", Color.green);
                 Debug.LogError("注册成功，请返回登陆");
 
             }
             else if (returnCode == ReturnCode.Failed)
             {
+                LoginHintTextUI.Instance.SetText("所用的用户名已被注册，请更改用户名", Color.red);
                 Debug.LogError("所用的用户名已被注册，请更改用户名");
             }
         }

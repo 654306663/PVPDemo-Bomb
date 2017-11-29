@@ -82,7 +82,7 @@ public class ThrowState : FSMState
 
         bombData.endPos = hitPosition;
         bombData.durationTime = 2;
-        bombData.damageRange = 10;
+        bombData.damageRange = 8;
         BombRequest.Instance.SendAddBombRequest(bombData);
     }
 }

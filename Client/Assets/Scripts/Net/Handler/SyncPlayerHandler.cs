@@ -15,16 +15,19 @@ namespace Net
 
         public override void AddListener()
         {
-            HandlerMediat.AddListener(MessageCode.AddPlayer, OnSyncPlayerReceived);
+            HandlerMediat.AddListener(MessageCode.AddPlayer, OnSyncAddPlayerReceived);
         }
 
         public override void RemoveListener()
         {
-            HandlerMediat.RemoveListener(MessageCode.AddPlayer, OnSyncPlayerReceived);
+            HandlerMediat.RemoveListener(MessageCode.AddPlayer, OnSyncAddPlayerReceived);
         }
 
-
-        void OnSyncPlayerReceived(OperationResponse response)
+        /// <summary>
+        /// 收到玩家加入消息
+        /// </summary>
+        /// <param name="response"></param>
+        void OnSyncAddPlayerReceived(OperationResponse response)
         {
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(response.Parameters, 1);
             AddPlayerS2C playerS2C = BinSerializer.DeSerialize<AddPlayerS2C>(bytes);

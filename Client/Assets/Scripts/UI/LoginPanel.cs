@@ -21,7 +21,10 @@ public class LoginPanel : MonoBehaviour {
 
         Net.LoginRequest.Instance.SendLoginRequest(username, password);
     }
-
+    
+    /// <summary>
+    /// 注册按钮
+    /// </summary>
     public void OnLoginRegisterButtonEvent()
     {
         gameObject.SetActive(false);

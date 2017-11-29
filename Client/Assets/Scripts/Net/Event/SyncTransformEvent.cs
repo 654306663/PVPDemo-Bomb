@@ -9,16 +9,19 @@ namespace Net
     {
         public override void AddListener()
         {
-            EventMediat.AddListener(MessageCode.SyncTransform, OnSyncPositionReceived);
+            EventMediat.AddListener(MessageCode.SyncTransform, OnSyncTransformReceived);
         }
 
         public override void RemoveListener()
         {
-            EventMediat.RemoveListener(MessageCode.SyncTransform, OnSyncPositionReceived);
+            EventMediat.RemoveListener(MessageCode.SyncTransform, OnSyncTransformReceived);
         }
 
-        
-        void OnSyncPositionReceived(EventData eventData)
+        /// <summary>
+        /// 收到位置等消息
+        /// </summary>
+        /// <param name="eventData"></param>
+        void OnSyncTransformReceived(EventData eventData)
         {
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(eventData.Parameters, 1);
 

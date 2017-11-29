@@ -33,7 +33,7 @@ public class PingUtil : MonoBehaviour
             Invoke("SendPing", 1);//每秒Ping一次
         }
 
-        GUI.Label(new Rect(10, 60, 200, 50), "ping:" + label + "ms", guiStyle);
+        GUI.Label(new Rect(10, 60, 200, 50), "Ping:" + label + "ms", guiStyle);
     }
 
     void SendPing()

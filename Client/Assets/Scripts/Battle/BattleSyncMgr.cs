@@ -57,6 +57,9 @@ public class BattleSyncMgr : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 添加玩家
+    /// </summary>
     public void OnAddPlayerEvent(string username, string heroModelName, string nickName, int hp, int killCount)
     {
         GameObject go = Instantiate(Resources.Load("Prefabs/Heros/" + heroModelName) as GameObject);
@@ -69,7 +72,7 @@ public class BattleSyncMgr : MonoBehaviour
 
         playerDic.Add(username, playerController);//利用集合保存所有的其他客户端
 
-        if(playerController.heroData.Hp <= 0)
+        if (playerController.heroData.Hp <= 0)
         {
             CoroutineUtil.Instance.WaitTime(0, false, () =>{
                 playerDic[username].fsmController.system.PerformTransition(FSMTransition.IdleToDead);
@@ -79,6 +82,9 @@ public class BattleSyncMgr : MonoBehaviour
         MessageMediator.Dispatch(MessageMediatType.AddPlayer, username);
     }
 
+    /// <summary>
+    /// 移除玩家
+    /// </summary>
     public void OnRemovePlayerEvent(string username)
     {
         if (playerDic.ContainsKey(username) && playerDic[username] != null)
@@ -90,6 +96,9 @@ public class BattleSyncMgr : MonoBehaviour
         MessageMediator.Dispatch(MessageMediatType.RemovePlayer, username);
     }
 
+    /// <summary>
+    /// 玩家死亡
+    /// </summary>
     public void OnPlayerDeadEvent(string deadUsername, string killerUsername)
     {
         if (playerDic.ContainsKey(deadUsername))
@@ -115,7 +124,9 @@ public class BattleSyncMgr : MonoBehaviour
         }
     }
 
-    bool isLastRecorded = false;
+    /// <summary>
+    /// 玩家位移同步
+    /// </summary>
     public void OnSyncTransformEvent(List<ProtoData.SyncTransformEvtS2C.TransformData> transformDataList)
     {
         foreach (ProtoData.SyncTransformEvtS2C.TransformData pd in transformDataList)//遍历所有的数据
@@ -135,6 +146,9 @@ public class BattleSyncMgr : MonoBehaviour
         //RecordTransfromData(transformDataList);
     }
 
+    /// <summary>
+    /// 玩家状态机切换
+    /// </summary>
     public void OnSyncTransitionEvent(string username, FSMTransition targetTransition, params object[] objs)
     {
         if (!playerDic.ContainsKey(username)) return;
@@ -142,119 +156,119 @@ public class BattleSyncMgr : MonoBehaviour
         playerDic[username].fsmController.system.PerformTransition(targetTransition, objs);
     }
 
-    /// <summary>
-    /// 记录前两帧数据
-    /// </summary>
-    /// <param name="transformDataList"></param>
-    Dictionary<float, List<ProtoData.SyncTransformEvtS2C.TransformData>> transformDatasDict = new Dictionary<float, List<SyncTransformEvtS2C.TransformData>>();
-    void RecordTransfromData(List<ProtoData.SyncTransformEvtS2C.TransformData> transformDataList, bool isFromNet = false)
-    {
-        bool isReplace = false;
-        if (isFromNet)
-        {
-            foreach (KeyValuePair<float, List<ProtoData.SyncTransformEvtS2C.TransformData>> item in transformDatasDict)
-            {
-                if (Time.time - item.Key < 0.02f)
-                {
-                    transformDatasDict[item.Key] = transformDataList;
-                    isReplace = true;
-                }
-                break;
-            }
+    ///// <summary>
+    ///// 记录前两帧数据
+    ///// </summary>
+    ///// <param name="transformDataList"></param>
+    //Dictionary<float, List<ProtoData.SyncTransformEvtS2C.TransformData>> transformDatasDict = new Dictionary<float, List<SyncTransformEvtS2C.TransformData>>();
+    //void RecordTransfromData(List<ProtoData.SyncTransformEvtS2C.TransformData> transformDataList, bool isFromNet = false)
+    //{
+    //    bool isReplace = false;
+    //    if (isFromNet)
+    //    {
+    //        foreach (KeyValuePair<float, List<ProtoData.SyncTransformEvtS2C.TransformData>> item in transformDatasDict)
+    //        {
+    //            if (Time.time - item.Key < 0.02f)
+    //            {
+    //                transformDatasDict[item.Key] = transformDataList;
+    //                isReplace = true;
+    //            }
+    //            break;
+    //        }
 
-        }
-        if (!isReplace)
-        {
-            if (!transformDatasDict.ContainsKey(Time.time))
-            {
-                transformDatasDict.Add(Time.time, transformDataList);
-            }
-            else
-            {
-                transformDatasDict[Time.time] = transformDataList;
-            }
-        }
-        if (transformDatasDict.Count > 5)
-            transformDatasDict.Remove(transformDatasDict.First().Key);
-    }
+    //    }
+    //    if (!isReplace)
+    //    {
+    //        if (!transformDatasDict.ContainsKey(Time.time))
+    //        {
+    //            transformDatasDict.Add(Time.time, transformDataList);
+    //        }
+    //        else
+    //        {
+    //            transformDatasDict[Time.time] = transformDataList;
+    //        }
+    //    }
+    //    if (transformDatasDict.Count > 5)
+    //        transformDatasDict.Remove(transformDatasDict.First().Key);
+    //}
 
-    /// <summary>
-    /// 获取最近一次记录的时间
-    /// </summary>
-    /// <returns></returns>
-    float GetLastRecordTime()
-    {
-        if (transformDatasDict.Count > 0)
-        {
-            return transformDatasDict.Last().Key;
-        }
-        return 0;
-    }
+    ///// <summary>
+    ///// 获取最近一次记录的时间
+    ///// </summary>
+    ///// <returns></returns>
+    //float GetLastRecordTime()
+    //{
+    //    if (transformDatasDict.Count > 0)
+    //    {
+    //        return transformDatasDict.Last().Key;
+    //    }
+    //    return 0;
+    //}
 
-    /// <summary>
-    /// 计算补偿
-    /// </summary>
-    /// <returns></returns>
-    List<ProtoData.SyncTransformEvtS2C.TransformData> CalculateSyncTransformRemedy()
-    {
-        if (transformDatasDict.Count > 1)
-        {
-            if(transformDatasDict.ElementAt(transformDatasDict.Count - 1).Key - transformDatasDict.ElementAt(transformDatasDict.Count - 2).Key > 0.05f)
-            {
-                return new List<SyncTransformEvtS2C.TransformData>();
-            }
-            List<ProtoData.SyncTransformEvtS2C.TransformData> dataList1 = transformDatasDict.ElementAt(transformDatasDict.Count - 2).Value;
-            List<ProtoData.SyncTransformEvtS2C.TransformData> dataList2 = transformDatasDict.ElementAt(transformDatasDict.Count - 1).Value;
-            List<ProtoData.SyncTransformEvtS2C.TransformData> newDataList = new List<SyncTransformEvtS2C.TransformData>();
-            for (int i = 0; i < dataList2.Count; i++)
-            {
-                for (int j = 0; j < dataList1.Count; j++)
-                {
-                    if (dataList2[i].username == dataList1[j].username)
-                    {
-                        ProtoData.SyncTransformEvtS2C.TransformData newData = new SyncTransformEvtS2C.TransformData();
-                        newData.username = dataList2[i].username;
-                        Vector3 vec1 = new Vector3(dataList1[j].x, dataList1[j].y, dataList1[j].z);
-                        Vector3 vec2 = new Vector3(dataList2[i].x, dataList2[i].y, dataList2[i].z);
-                        float distance = Vector3.Distance(vec1, vec2);
-                        Vector3 newVec = vec2 + (vec2 - vec1).normalized * (distance * 2);
-                        newData.x = newVec.x;
-                        newData.y = newVec.y;
-                        newData.z = newVec.z;
-                        newDataList.Add(newData);
-                    }
-                }
-            }
-            RecordTransfromData(newDataList);
-            return newDataList;
-        }
-        else return new List<SyncTransformEvtS2C.TransformData>();
-    }
+    ///// <summary>
+    ///// 计算补偿
+    ///// </summary>
+    ///// <returns></returns>
+    //List<ProtoData.SyncTransformEvtS2C.TransformData> CalculateSyncTransformRemedy()
+    //{
+    //    if (transformDatasDict.Count > 1)
+    //    {
+    //        if(transformDatasDict.ElementAt(transformDatasDict.Count - 1).Key - transformDatasDict.ElementAt(transformDatasDict.Count - 2).Key > 0.05f)
+    //        {
+    //            return new List<SyncTransformEvtS2C.TransformData>();
+    //        }
+    //        List<ProtoData.SyncTransformEvtS2C.TransformData> dataList1 = transformDatasDict.ElementAt(transformDatasDict.Count - 2).Value;
+    //        List<ProtoData.SyncTransformEvtS2C.TransformData> dataList2 = transformDatasDict.ElementAt(transformDatasDict.Count - 1).Value;
+    //        List<ProtoData.SyncTransformEvtS2C.TransformData> newDataList = new List<SyncTransformEvtS2C.TransformData>();
+    //        for (int i = 0; i < dataList2.Count; i++)
+    //        {
+    //            for (int j = 0; j < dataList1.Count; j++)
+    //            {
+    //                if (dataList2[i].username == dataList1[j].username)
+    //                {
+    //                    ProtoData.SyncTransformEvtS2C.TransformData newData = new SyncTransformEvtS2C.TransformData();
+    //                    newData.username = dataList2[i].username;
+    //                    Vector3 vec1 = new Vector3(dataList1[j].x, dataList1[j].y, dataList1[j].z);
+    //                    Vector3 vec2 = new Vector3(dataList2[i].x, dataList2[i].y, dataList2[i].z);
+    //                    float distance = Vector3.Distance(vec1, vec2);
+    //                    Vector3 newVec = vec2 + (vec2 - vec1).normalized * (distance * 2);
+    //                    newData.x = newVec.x;
+    //                    newData.y = newVec.y;
+    //                    newData.z = newVec.z;
+    //                    newDataList.Add(newData);
+    //                }
+    //            }
+    //        }
+    //        RecordTransfromData(newDataList);
+    //        return newDataList;
+    //    }
+    //    else return new List<SyncTransformEvtS2C.TransformData>();
+    //}
 
-    /// <summary>
-    /// 同步补偿计时
-    /// </summary>
-    float lastSyncTransformTime = 0;
-    float syncTransformTime = 0;
-    IEnumerator SyncTransformRemedyTimer()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.03f);
+    ///// <summary>
+    ///// 同步补偿计时
+    ///// </summary>
+    //float lastSyncTransformTime = 0;
+    //float syncTransformTime = 0;
+    //IEnumerator SyncTransformRemedyTimer()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(0.03f);
 
-            if (syncTransformTime != 0 && Time.time - syncTransformTime > 0.03f)
-            {
-                SyncTransformRemedy();
-            }
-        }
-    }
+    //        if (syncTransformTime != 0 && Time.time - syncTransformTime > 0.03f)
+    //        {
+    //            SyncTransformRemedy();
+    //        }
+    //    }
+    //}
 
-    /// <summary>
-    /// 执行补偿
-    /// </summary>
-    void SyncTransformRemedy()
-    {
-        Debug.Log("执行位移补偿");
-        //OnSyncTransformEvent(CalculateSyncTransformRemedy());
-    }
+    ///// <summary>
+    ///// 执行补偿
+    ///// </summary>
+    //void SyncTransformRemedy()
+    //{
+    //    Debug.Log("执行位移补偿");
+    //    //OnSyncTransformEvent(CalculateSyncTransformRemedy());
+    //}
 }

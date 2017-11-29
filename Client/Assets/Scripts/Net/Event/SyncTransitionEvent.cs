@@ -23,7 +23,10 @@ namespace Net
             EventMediat.RemoveListener(MessageCode.SyncTransition, OnSyncTransitionReceived);
         }
 
-
+        /// <summary>
+        /// 收到状态事件消息
+        /// </summary>
+        /// <param name="eventData"></param>
         void OnSyncTransitionReceived(EventData eventData)
         {
             byte[] bytes = (byte[])DictTool.GetValue<byte, object>(eventData.Parameters, 1);

@@ -28,6 +28,10 @@ public class BombMgr{
         }
     }
 
+    /// <summary>
+    /// 爆炸
+    /// </summary>
+    /// <param name="openBombS2CEvt"></param>
     public void OpenBomb(ProtoData.OpemBombS2CEvt openBombS2CEvt)
     {
         if (activeBombDict.ContainsKey(openBombS2CEvt.bombId) && activeBombDict[openBombS2CEvt.bombId] != null)
@@ -37,6 +41,10 @@ public class BombMgr{
         CalculateDamage(openBombS2CEvt.beHitData);
     }
 
+    /// <summary>
+    /// 处理伤害
+    /// </summary>
+    /// <param name="beHitDataList"></param>
     void CalculateDamage(List<ProtoData.OpemBombS2CEvt.BeHitData> beHitDataList)
     {
         for (int i = 0; i < beHitDataList.Count; i++)
@@ -48,6 +56,10 @@ public class BombMgr{
         }
     }
 
+    /// <summary>
+    /// 移除炸弹
+    /// </summary>
+    /// <param name="id"></param>
     public void RemoveBomb(int id)
     {
         if(activeBombDict.ContainsKey(id) && activeBombDict[id] != null)

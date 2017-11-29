@@ -86,7 +86,7 @@ namespace MyGameServer.Threads
                     {
                         ProtoData.OpemBombS2CEvt.BeHitData beHitData = new ProtoData.OpemBombS2CEvt.BeHitData();
                         beHitData.username = peer.playerData.username;
-                        beHitData.lossHp = (int)((bombData.damageRange - lenght) * 10);
+                        beHitData.lossHp = (int)((bombData.damageRange - lenght) * 5);
                         peer.playerData.heroData.hp -= beHitData.lossHp;
 
                         if (peer.playerData.heroData.hp < 0)

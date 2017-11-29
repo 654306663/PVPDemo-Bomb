@@ -38,6 +38,7 @@ public class ChooseHeroPanel : MonoBehaviour {
         selectHeroName = heroNames[Random.Range(0, heroNames.Length)];
         GameObject go = Instantiate(Resources.Load("Prefabs/Heros/" + selectHeroName) as GameObject);
         go.transform.SetParent(heroParent, false);
+        go.GetComponent<FSMController>().system.playerType = PlayerType.Other;
     }
 
     void OnBattleEvent()

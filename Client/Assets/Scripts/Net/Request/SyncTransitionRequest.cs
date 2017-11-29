@@ -7,7 +7,7 @@ namespace Net
     public class SyncTransitionRequest : Singleton<SyncTransitionRequest>
     {
 
-        //发起位置信息请求
+        //发起状态信息请求
         public void SendSyncTransitionRequest(FSMTransition transition, params object[] objs)
         {
             ProtoData.SyncTransitionC2S syncTransitionC2S = new ProtoData.SyncTransitionC2S();
@@ -19,7 +19,7 @@ namespace Net
             data.Add(1, bytes);
             data.Add(2, objs);
 
-            PhotonEngine.Peer.OpCustom((byte)MessageCode.SyncTransition, data, true);//把Player位置传递给服务器
+            PhotonEngine.Peer.OpCustom((byte)MessageCode.SyncTransition, data, true);//把Player状态传递给服务器
         }
     }
 }

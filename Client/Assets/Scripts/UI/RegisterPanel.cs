@@ -27,9 +27,13 @@ public class RegisterPanel : MonoBehaviour {
         Net.LoginRequest.Instance.SendRegisterRequest(username, password);
     }
 
+    /// <summary>
+    /// 返回按钮
+    /// </summary>
     public void OnReturnButtonEvent()
     {
         loginPanel.SetActive(true);
         gameObject.SetActive(false);
+        LoginHintTextUI.Instance.SetText("");
     }
 }

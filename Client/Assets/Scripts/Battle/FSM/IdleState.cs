@@ -30,7 +30,7 @@ public class IdleState : FSMState
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1 << LayerMask.NameToLayer("Plane")))
+            if (Physics.Raycast(ray, out hit, 100, 1 << LayerMask.NameToLayer("Plane")))
             {
                 system.PerformTransition(FSMTransition.IdleToThrow, hit.point.x, hit.point.y, hit.point.z);
                 return;
